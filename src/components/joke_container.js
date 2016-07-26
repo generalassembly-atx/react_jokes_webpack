@@ -2,6 +2,8 @@ import React from 'react';
 import JokeForm from './joke_form';
 import JokeList from './joke_list';
 
+require('../../sass/style.scss');
+
 class JokeContainer extends React.Component {
   constructor(){
     super();
@@ -14,7 +16,7 @@ class JokeContainer extends React.Component {
   }
   render(){
     return (
-      <div>
+      <div className="testing">
         <JokeForm addJoke={ this._addJoke.bind(this) } />
         <JokeList jokes={ this.state.jokes } />
       </div>

@@ -1,0 +1,18 @@
+$dark-green: green;
+
+body{
+  background-color: #ccc;
+
+  h1{
+    color: $dark-green;
+  }
+}
+
+@media (max-width: 500px){
+  body{
+    h1{
+      color: blue;
+      font-size: 50px;
+    }
+  }
+}

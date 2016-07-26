@@ -2,6 +2,7 @@ import React from 'react';
 import Upvoter from './upvoter';
 import Downvoter from './downvoter';
 
+
 class Joke extends React.Component {
   constructor(){
     super();

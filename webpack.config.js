@@ -1,15 +1,19 @@
 var webpack = require('webpack');
-
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var debug = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: "./src/app.js",
   output: {
-    path: __dirname + "/public/javascripts/",
-    filename: "bundle.js"
+    path: __dirname + "/public",
+    filename: "/javascripts/bundle.js"
   },
   module: {
     loaders: [
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass')
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -21,8 +25,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
-    })
-  ]
+      new ExtractTextPlugin('/stylesheets/style.css', {
+          allChunks: true
+      })
+    ]
 };
